@@ -1,0 +1,42 @@
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.coverage
+/htmlcov
+dist/
+build/
+.env
+/venv*
+/.venv*
+/grafana/
+/prometheus/
+/.vscode
+*.egg-info
+.pypirc
+.venv
+.poetry.lock
+requirements.txt
+dev-requirements.txt
+
+# Ignore Node.js dependencies
+node_modules/
+package-lock.json
+
+# Ignore Angular build artifacts
+dist/
+out-tsc/
+
+# Ignore environment files (if you store secrets)
+*.env
+*.local
+
+# Ignore Angular cache
+.angular/
+
+# Ignore editor/IDE files
+.vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db

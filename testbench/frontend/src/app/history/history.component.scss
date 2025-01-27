@@ -1,0 +1,47 @@
+/* Expand history page width */
+.history-container {
+    max-width: 1200px; /* ✅ Make history table larger */
+    width: 100%;
+    margin: 20px auto;
+  }
+  
+  /* Fix section/key input alignment */
+  .history-filters {
+    display: flex;
+    gap: 15px;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  /* Ensure input fields are correctly sized */
+  .history-filters mat-form-field {
+    width: 250px;
+  }
+  
+  /* Fix text visibility */
+  .history-filters input {
+    text-align: left;
+    color: white !important;
+    width: 100%;
+  }
+  
+  /* Fix history container style */
+  .history-container mat-card {
+    background: #1e1e1e !important;
+    color: white !important;
+  }
+  
+  /* Pagination buttons */
+  .history-pagination {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  /* Table Styling */
+  .mat-table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  

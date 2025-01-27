@@ -1,0 +1,61 @@
+[tool.poetry]
+name = "unified-config"
+version = "0.1.0"
+description = "A configuration manager library supporting YAML, JSON, and TOML with SQLAlchemy integration."
+authors = ["yokha <khaya.youssef@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+poetry = "==1.8.0"
+python = "^3.8"
+PyYAML = "^6.0"
+pydantic = "^2.0"
+sqlalchemy = "^2.0"
+toml = "^0.10.2"
+redis-manager = "^0.1.1"
+fastapi = "^0.115.8"
+asyncpg = "^0.30.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.0"
+pytest-cov = "^4.0.0"
+pytest-mock = "^3.14.0"
+black = "^23.0.0"
+isort = "^5.0.0"
+pylint = "^3.0.0"
+astroid = "^3.0.0"
+pytest-asyncio = "^0.23"
+
+[tool.black]
+line-length = 88
+target-version = ["py38", "py39", "py310", "py311", "py312"]
+
+[tool.pylint]
+max-line-length = 88
+ignore = ["__pycache__", "*.pyc", "*.pyo", "env", "venv"]
+disable = [
+    "C0103", # Variable name doesn't conform to snake_case
+    "C0114", # Missing module docstring
+    "C0116", # Missing function or method docstring
+    "C0301", # Line too long (related to line length)
+    "R0902", # Too many instance attributes
+    "R0903", # Too few public methods
+    "R0911", # Too many return statements
+    "R0913", # Too many arguments
+    "R0914", # Too many local variables
+    "W1203", # Use lazy % formatting in logging functions
+    "W0108", # Lambda may not be necessary
+    "W0621", # redefined-outer-name
+    "W0212", # protected-access
+    "W0613", # Unused argument
+    "W1514", # Using open without explicitly specifying an encoding
+    "W0703", # Catching too general exception Exception
+    "C0302", # Too many lines in module
+]
+
+[tool.pylint.messages_control]
+disable = ["no-member"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

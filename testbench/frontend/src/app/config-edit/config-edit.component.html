@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>🛠 Edit Configuration</h2>
+
+  <label for="format">Select Format:</label>
+  <select id="format" [(ngModel)]="selectedFormat" (change)="fetchConfig()">
+    <option value="yaml">YAML</option>
+    <option value="json">JSON</option>
+    <option value="toml">TOML</option>
+  </select>
+
+  <textarea [(ngModel)]="configText" rows="10" cols="80" (input)="validateConfig()"></textarea>
+  
+  <button (click)="submitConfig()" [disabled]="!isValid">Save Configuration</button>
+
+  <hr />
+
+  <h2>🔄 Live Config Updates</h2>
+  <div *ngIf="liveUpdates.length === 0" class="no-updates">
+    No configuration updates received yet.
+  </div>
+  <ul>
+    <li *ngFor="let update of liveUpdates">
+      <strong>📌 Section:</strong> {{ update.section }} <br />
+      <strong>🔑 Key:</strong> {{ update.key }} <br />
+      <strong>🆕 New Value:</strong> {{ update.new_value }}
+      <hr />
+    </li>
+  </ul>
+</div>
