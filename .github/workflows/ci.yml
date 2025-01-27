@@ -1,0 +1,83 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '**/README.md'
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ci-tests
+      cancel-in-progress: true
+    strategy:
+      matrix:
+        python-version:
+          - "3.13"
+          - "3.12"
+          - "3.11"
+          - "3.10"
+          - "3.9"
+          - "3.8"
+      fail-fast: false
+      max-parallel: 1  # Ensures serial execution
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Docker Compose
+        run: |
+          sudo apt-get remove docker-compose
+          sudo curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+
+      - name: Validate Docker Installation
+        run: |
+          docker --version
+          docker-compose --version
+
+      - name: Update requirements
+        run: |
+          make update-requirements
+
+      - name: Check code formatting
+        run: |
+          make format-check
+
+      - name: Run linting
+        run: |
+          make lint
+
+      - name: Run unit tests
+        run: |
+          make unit-test
+
+      - name: Run integration tests
+        run: |
+          make integration-test
+
+      - name: Run Unit tests coverage
+        run: |
+          make unit-cov
+
+      - name: Run Unit tests coverage
+        run: |
+          make integration-cov
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report-${{ matrix.python-version }}
+          path: htmlcov/

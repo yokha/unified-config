@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+    <span>Config Exporter</span>
+  </mat-toolbar>
+  
+  <div class="export-container">
+    <mat-card>
+      <mat-card-content>
+        <div class="format-selector">
+          <h2>Select Export Format</h2>
+          <mat-form-field appearance="outline">
+            <mat-label>Format</mat-label>
+            <mat-select [(ngModel)]="selectedFormat" (selectionChange)="fetchConfig()">
+              <mat-option value="json">JSON</mat-option>
+              <mat-option value="yaml">YAML</mat-option>
+              <mat-option value="toml">TOML</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  
+    <mat-card class="exported-config">
+      <mat-card-content>
+        <h2>Exported Configuration</h2>
+        <pre><code [innerHTML]="highlightedConfig"></code></pre>
+        <button class="download-btn" (click)="downloadConfig()">⬇️ Download Config</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

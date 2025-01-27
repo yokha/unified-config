@@ -1,0 +1,76 @@
+# Basic app configurations
+app:
+  name: "TestBenchApp"
+  version: "1.2.3"
+  debug: true  # Boolean flag
+
+# Database settings
+database:
+  host: "127.0.0.1"
+  port: 5432
+  username: "test_user"
+  password: "secure!password123"
+  pool_size: 10
+  max_connections: 50
+
+# Redis settings (list of nodes)
+redis:
+  enabled: true
+  cluster_mode: false
+  nodes:
+    - host: "redis-primary.local"
+      port: 6379
+    - host: "redis-replica.local"
+      port: 6380
+
+# API rate limits with nested list handling
+api_limits:
+  max_requests_per_minute: 100
+  rate_limits:
+    - endpoint: "/users"
+      limit: 500
+    - endpoint: "/config"
+      limit: 200
+    - endpoint: "/auth/login"
+      limit: 50
+
+# Security settings with special character handling
+security:
+  jwt:
+    enabled: "true"  # Edge case: Boolean as a string
+    access_token_expiry: 3600
+    refresh_token_expiry: 86400
+    algorithms:
+      - "HS256"
+      - "RS256"
+  allowed_origins:
+    - "https://example.com"
+    - "https://secure.example.com"
+
+# Logging settings with nested dict and empty list
+logging:
+  level: "INFO"
+  format: "[%(asctime)s] %(levelname)s: %(message)s"
+  output:
+    console: true
+    file: "/var/log/testbench.log"
+    ignored_modules: []  # Edge case: Empty list
+
+# Feature flags with various data types
+features:
+  beta_mode: false
+  max_users: 1000
+  timeout_seconds: 5.5  # Edge case: Float value
+  # service_enabled: null  # Edge case: Explicit null value
+
+# List-based config stored as a section
+service_configs:
+    - name: "Service A"
+      url: "https://service-a.example.com"
+      active: true
+    - name: "Service B"
+      url: "https://service-b.example.com"
+      active: false
+
+# Edge case: Single value stored in section
+maintenance_mode: "enabled"

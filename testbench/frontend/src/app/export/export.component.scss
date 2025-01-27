@@ -1,0 +1,98 @@
+/* Ensure export format text is visible */
+.format-selector h2 {
+    color: white !important;
+  }
+  
+  /* Fix select dropdown readability */
+  .format-selector mat-form-field {
+    width: 100%;
+    max-width: 300px;
+    color: #d3d3d3 !important;
+  }
+  
+  .format-selector mat-label {
+    color: #b0b0b0 !important;
+  }
+  
+  .mat-select-value {
+    color: white !important;
+  }
+  
+  /* Prevent double scroll bars */
+  html, body {
+    overflow: hidden !important;
+    height: 100%;
+  }
+  
+/* Ensure export page uses the same width as history page */
+.export-container {
+    width: 95%;
+    max-width: 1200px;
+    min-width: 900px; /* ✅ Ensures no shrinking */
+    margin-top: 20px;
+  }
+  
+  /* Ensure only the exported config box is dark */
+  .exported-config {
+    background-color: #2d2d2d !important;
+    color: white !important;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-y: auto !important;
+    min-height: 500px;
+    max-height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Format Selector */
+  .format-selector {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    white-space: nowrap;
+  }
+  
+  /* Ensure format selector doesn't stretch too much */
+  mat-form-field {
+    width: 100%;
+    max-width: 300px;
+    color: #d3d3d3 !important; /* ✅ Improve contrast */
+  }
+  
+  mat-label {
+    color: #b0b0b0 !important; /* ✅ Darker gray for label */
+  }
+  
+  .mat-select-value {
+    color: white !important; /* ✅ Ensure dropdown text is visible */
+  }
+  
+  /* Download Button */
+  .download-btn {
+    align-self: center;
+    margin-top: auto;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: #00897b;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .download-btn:hover {
+    background-color: #00695c;
+    transform: scale(1.05);
+  }
+  
+  .download-btn:active {
+    transform: scale(0.95);
+  }
+  

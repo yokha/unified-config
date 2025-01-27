@@ -1,0 +1,33 @@
+# FastAPI and Web Server
+fastapi
+uvicorn[standard]
+gunicorn
+
+# Database and ORM
+sqlalchemy[asyncio]
+sqlalchemy-continuum
+asyncpg
+
+# Migrations
+alembic
+
+# Caching & Pub/Sub (Redis)
+redis[asyncio]
+
+python-multipart
+
+black
+isort
+
+# Task Scheduler (If used)
+apscheduler
+
+# Configuration Management (Use local path to unified-config)
+-e ../../unified-config  # ✅ This installs the local version
+# unified-config  # ✅ If published on PyPI
+
+# Testing & Dev Tools
+pytest
+pytest-asyncio
+pytest-cov
+httpx

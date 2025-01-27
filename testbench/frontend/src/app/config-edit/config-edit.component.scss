@@ -1,0 +1,23 @@
+.edit-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .config-editor {
+    width: 100%;
+    max-width: 900px;
+  }
+  
+  .config-textarea {
+    width: 100%;
+    height: 400px;
+    font-family: monospace;
+    font-size: 1.2rem;
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
