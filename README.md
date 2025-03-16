@@ -9,6 +9,10 @@
 ## Overview
 **Unified Config** is a **versatile configuration management system** designed for **microservices** and **distributed applications**. It provides a centralized and flexible way to manage configurations, leveraging **SQLAlchemy ORM for database interactions**, making it compatible with multiple database backends.
 
+## Tutorial 🎥
+[![Watch the Demo](assets/video-thumbnail.png)](assets/video-tutorial.mp4)
+
+
 ## Features
 - **Database-Backed Configuration Management** (SQLAlchemy ORM - supports various databases)
 - **Redis Caching & Pub/Sub for Live Updates**

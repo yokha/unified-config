@@ -24,22 +24,19 @@ PROD_PYPI_URL = https://pypi.org/pypi/$(PACKAGE_NAME)/json
 
 all: lint format format-check test cov integration package
 
-
-
-# Ensure Poetry is installed
-ensure-poetry: setup-venv
-	@pip install poetry
-
+# Ensure Poetry is installed and properly configured
+ensure-poetry: clean-venv
+	@pip install --user poetry  # Install Poetry for the current user only
+	@poetry config virtualenvs.in-project true  # Force Poetry to use a local venv
 
 # Update and export dependencies
 update-requirements: ensure-poetry
 	@poetry lock
-	# @poetry self add poetry-plugin-export@1.8.0
+	@poetry self add poetry-plugin-export@1.8.0 || true  # Avoid failure if already added
 	@poetry export --without-hashes --output requirements.txt
 	@poetry export --without-hashes --with dev --output dev-requirements.txt
-	@$(MAKE) clean-venv
+	# @$(MAKE) clean-venv
 	@$(MAKE) setup-venv
-
 
 # Call integration test Makefile from the root folder
 integration-test: setup-venv
