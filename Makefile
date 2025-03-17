@@ -165,9 +165,9 @@ verify-pypi-prod:
 
 test-pypi-prod-install:
 	@echo "Creating a production test virtual environment..."
-	python3 -m venv $(VENV_DIR_PROD)
+	python3 -m venv $(VENV_DIR)
 	@echo "Activating virtual environment and installing package from PyPI..."
-	. $(VENV_DIR_PROD)/bin/activate && pip install $(PACKAGE_NAME) && \
+	. $(VENV_DIR)/bin/activate && pip install $(PACKAGE_NAME) && \
 	python -c "import unified_config; print('Production package installed and working correctly!')" && \
 	deactivate
 	@echo "PyPI package installation and basic test completed!"

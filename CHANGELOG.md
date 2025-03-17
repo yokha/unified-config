@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+---
+
+## **[v0.1.1] - 2025-03-17**
+### 🔥 Enhancements & Documentation Update  
+This release includes an updated **README.md** and a new **video tutorial**.
+
+#### ✅ **Added**
+- **Updated README.md** with installation steps and improved documentation.
+- **Changelog updated** to reflect new changes.
+
+#### 📝 **Notes**
+- Video tutorial is hosted and linked in the documentation.
+
 ---
 
 ## **[v0.1.0] - 2025-03-16**
